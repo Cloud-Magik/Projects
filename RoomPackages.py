@@ -1,5 +1,5 @@
-#Include amenities? Too Simple? Enough?
-RoomPackages =[f"""
+# Include amenities? Too Simple? Enough?
+RoomPackages = (f"""
 "Standard : Single twin bed, $50",
 "Standard for two : two twin beds, $75",
 "Premiere : Queen bed, $125",
@@ -7,4 +7,5 @@ RoomPackages =[f"""
 "Honeymoon Suite : Custom king bed, $225",
 "Master Suite : Custom king bed with butler, $300",
 "Presidential Suite : California king bed with butler, $500"
-"""]
+""")
+print(RoomPackages)
