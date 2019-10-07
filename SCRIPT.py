@@ -4,7 +4,7 @@ import random
 import calendar
 
 #---------------------------------------------------------------
-# Requirements for project
+# ******************Requirements for project********************
 # fill brackets with [X] when requirements are fulfilled
 # use comments [X]
 # exceptions for inputs; make the code unbreakable []
