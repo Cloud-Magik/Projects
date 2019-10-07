@@ -34,5 +34,5 @@ reservations_list = []
 
 # INTRO; Title page, Create user or login
 
-x = open("Title.txt", "r")
+x = open("Title.txt")
 print(x.read())
