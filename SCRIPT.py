@@ -1,4 +1,3 @@
-from collections import namedtuple
 import datetime
 import random
 import calendar
@@ -26,3 +25,5 @@ import calendar
 
 x = open("Title.txt")
 print(x.read())
+x.close()
+
