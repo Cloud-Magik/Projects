@@ -26,3 +26,5 @@ import calendar
 
 x = open("Title.txt")
 print(x.read())
+
+clear()
