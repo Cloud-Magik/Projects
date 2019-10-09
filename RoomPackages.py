@@ -1,4 +1,3 @@
-# Include amenities? Too Simple? Enough?
 RoomPackages = (f"""
 "Standard : Single twin bed, $50",
 "Standard for two : two twin beds, $75",
