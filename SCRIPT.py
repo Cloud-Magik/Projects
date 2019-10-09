@@ -1,16 +1,92 @@
-from collections import namedtuple
+import csv
 import datetime
-import math
+import random
+import calendar
+import getpass
 
-#NAMEDTUPLE; this is how we pull info form customer that has been stored
+# ---------------------------------------------------------------
+# ******************Requirements for project********************
+# fill brackets with [X] when requirements are fulfilled
+# use comments [X]
+# exceptions for inputs; make the code unbreakable []
+# save info and pull information from database []
+# calculations clean []
+# CRUD operations (create,read,update,delete)[]
+# use classes []
+# use objects[]
+# use loops[]
+# use arrays[]
+# use Lists[]
+# use conditionals[]
+# use functions[]
+# use file imports[]
+# use discounts or incentive for project[]
+# ---------------------------------------------------------------
 
-Reservation = namedtuple('Reservation', 'room arr_date dept_date guest_name confirmation num')
+# INTRO; Title page, Create user or login
 
-#Variables & Lists
 
-Room_packages = []
-reservation_list = []
+def Paradisefalls():
+    Title = open("Title.txt")
+    print(Title.read())
+    Title.close()
 
-#Main Function
-def funcname(parameter_list):
-    pass
+
+Paradisefalls()
+
+
+def main():
+    while True:
+
+        answer = input(
+            "\n\n\nWould you like to log in to an existing account or register? (Login/Register): ")
+        if answer[:1].upper() == 'R':
+            register_user()
+
+        elif answer[:1].upper() == 'L':
+            if log_in():
+                print("Succesful log in!")
+
+        else:
+            print("Invalid entry")
+
+
+class User:
+    def __init__(self, username=None, password=None):
+        self.username = username
+        self.password = password
+
+
+def register_user():
+    print("\nLets register you")
+    user = User()
+    user.username = input("Enter Username to register: ").lower()
+    user.password = getpass.getpass("Enter your password: ")
+
+    csvfile = open('users.csv', 'a+')
+    csvfile.write(f"{user.username},{user.password}\n")
+    csvfile.close()
+
+# read csv file and store data into object and list
+
+
+def log_in():
+    print("Login info:")
+    username = input("Log in with Username: ").lower()
+    password = getpass.getpass("Enter your password: ")
+
+    with open('users.csv') as csvfile:
+        CSVData = csv.reader(csvfile, delimiter=',')
+
+        userExists = False
+        for row in CSVData:
+            userExists = True
+            return True
+            break
+
+        if not userExists:
+            print("User doesn't exist!")
+    csvfile.close()
+
+
+main()
