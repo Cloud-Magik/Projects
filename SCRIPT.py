@@ -44,8 +44,8 @@ def main():
             register_user()
 
         elif answer[:1].upper() == 'L':
-            if log_in():
-                print("Succesful log in!")
+            if log_in():True
+            print("Succesful login!")
 
         else:
             print("Invalid entry")
@@ -72,7 +72,7 @@ def register_user():
 
 def log_in():
     print("Login info:")
-    username = input("Log in with Username: ").lower()
+    username = input("Login with Username: ").lower()
     password = getpass.getpass("Enter your password: ")
 
     with open('users.csv') as csvfile:
