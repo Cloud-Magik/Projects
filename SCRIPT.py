@@ -1,7 +1,8 @@
-from collections import namedtuple
+import csv
 import datetime
 import random
 import calendar
+import getpass
 
 # ---------------------------------------------------------------
 # ******************Requirements for project********************
@@ -24,7 +25,68 @@ import calendar
 
 # INTRO; Title page, Create user or login
 
-x = open("Title.txt")
-print(x.read())
 
-clear()
+def Paradisefalls():
+    Title = open("Title.txt")
+    print(Title.read())
+    Title.close()
+
+
+Paradisefalls()
+
+
+def main():
+    while True:
+
+        answer = input(
+            "\n\n\nWould you like to log in to an existing account or register? (Login/Register): ")
+        if answer[:1].upper() == 'R':
+            register_user()
+
+        elif answer[:1].upper() == 'L':
+            if log_in():
+                print("Succesful log in!")
+
+        else:
+            print("Invalid entry")
+
+
+class User:
+    def __init__(self, username=None, password=None):
+        self.username = username
+        self.password = password
+
+
+def register_user():
+    print("\nLets register you")
+    user = User()
+    user.username = input("Enter Username to register: ").lower()
+    user.password = getpass.getpass("Enter your password: ")
+
+    csvfile = open('users.csv', 'a+')
+    csvfile.write(f"{user.username},{user.password}\n")
+    csvfile.close()
+
+# read csv file and store data into object and list
+
+
+def log_in():
+    print("Login info:")
+    username = input("Log in with Username: ").lower()
+    password = getpass.getpass("Enter your password: ")
+
+    with open('users.csv') as csvfile:
+        CSVData = csv.reader(csvfile, delimiter=',')
+
+        userExists = False
+        for row in CSVData:
+            userExists = True
+            return True
+            break
+
+        if not userExists:
+            print("User doesn't exist!")
+    csvfile.close()
+
+
+main()

@@ -1,11 +1,9 @@
 import csv
-filename = users.csv
-fields = ['ID','email','password','firstname','lastname','confirmationnumber']
-rows = []
+email = []
+password = []
+guestname =[]
 
-with open(filename, 'r') as csvfile:
-    csvreader = csv.reader(csvfile)
-    fields = csvreader.next()
-    for row in csvreader:
-        rows.appen(row)
-print('field names are:' + ','.join(field for field in fields))
+with open('users.csv', 'r') as csvfile:
+    readCSV = csv.reader(csvfile, delimiter=',')
+    for row in readCSV:
+        print(row)
