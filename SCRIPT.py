@@ -44,8 +44,8 @@ def main():
             register_user()
 
         elif answer[:1].upper() == 'L':
-            if log_in():True
-            print("Succesful login!")
+            if log_in():
+                print("Succesful login!")
 
         else:
             print("Invalid entry")
@@ -80,12 +80,17 @@ def log_in():
 
         userExists = False
         for row in CSVData:
-            userExists = True
-            return True
-            break
+            
+            if username == row[0] and password == row[1]:
+
+                userExists = True
+                return True
+                break
 
         if not userExists:
             print("User doesn't exist!")
+            return False
+
     csvfile.close()
 
 
