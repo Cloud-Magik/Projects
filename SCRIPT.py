@@ -36,6 +36,7 @@ Paradisefalls()
 
 
 def main():
+
     while True:
 
         answer = input(
@@ -46,7 +47,7 @@ def main():
         elif answer[:1].upper() == 'L':
             if log_in():
                 print("Succesful login!")
-
+            break
         else:
             print("Invalid entry")
 
@@ -67,8 +68,6 @@ def register_user():
     csvfile.write(f"{user.username},{user.password}\n")
     csvfile.close()
 
-# read csv file and store data into object and list
-
 
 def log_in():
     print("Login info:")
@@ -80,7 +79,7 @@ def log_in():
 
         userExists = False
         for row in CSVData:
-            
+
             if username == row[0] and password == row[1]:
 
                 userExists = True
@@ -90,8 +89,8 @@ def log_in():
         if not userExists:
             print("User doesn't exist!")
             return False
-
     csvfile.close()
 
 
 main()
+
