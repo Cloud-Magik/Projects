@@ -39,7 +39,7 @@ def main():
     while True:
 
         answer = input(
-            "\n\n\nWould you like to log in to an existing account or register? (Login/Register): ")
+            "\n\n\nWould you like to login to an existing account or register? (Login/Register): ")
         if answer[:1].upper() == 'R':
             register_user()
 
