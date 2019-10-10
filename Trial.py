@@ -1,5 +1,4 @@
 import csv
-email = []
 password = []
 guestname =[]
 
