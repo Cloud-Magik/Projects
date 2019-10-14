@@ -1,23 +1,12 @@
 import psycopg2
 from psycopg2 import sql
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-#from Config import config
 
-
-# def connect():
-
-#     conn = None
-#     try:
-#         params = config()
-#         print('Connecting to the PostgreSQL database...')
-#         conn = psycopg2.connect(**params)
-
-#         cur = conn.cursor()
 try:
     conn = psycopg2.connect(
-        database="Cohort2",
+        database="postgres",
         user="postgres",
-        password="6108",
+        password="0000",
         host="127.0.0.1",
         port="5432"
     )
