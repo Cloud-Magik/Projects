@@ -87,10 +87,9 @@ def log_in():
                 break
 
         if not userExists:
-            print("User doesn't exist!")
-            return False
+            print(f"User doesn't exist!")
+            log_in()
     csvfile.close()
 
 
 main()
-
