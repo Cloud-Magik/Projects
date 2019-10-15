@@ -12,7 +12,7 @@ try:
         cursor = conn.cursor()
         cursor.execute(
             """CREATE table users(
-            user_id serial not null primary key,
+            user_id serial primary key,
             email text not null,
             first_name text not null,
             last_name text not null,
@@ -24,7 +24,8 @@ try:
 
         cursor.execute(
             """CREATE table reservation(
-                confirmation_number serial not null primary key,
+                user_id serial not null foreign key,
+                confirmation_number serial primary key,
                 username text not null,
                 arrival_date text not null,
                 departure_date text not null,
