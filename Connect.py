@@ -4,7 +4,7 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 try:
     conn = psycopg2.connect(
-        database="postgres",
+        database="Hotel",
         user="postgres",
         password="0000",
         host="127.0.0.1",
