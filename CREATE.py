@@ -1,6 +1,5 @@
 import psycopg2
 try:
-    # CONNECTION...
     conn = psycopg2.connect(
         database="Hotel",
         user="postgres",
@@ -9,30 +8,27 @@ try:
         port="5432"
     )
 
-    # AUTHENTICATION....
     def createTables():
         cursor = conn.cursor()
         cursor.execute(
-            """CREATE TABLE users (
-            user_id SERIAL NOT NULL PRIMARY KEY,
-            email TEXT NOT NULL, 
-            first_name TEXT NOT NULL,
-            last_name TEXT NOT NULL, 
-            username TEXT NOT NULL,
-            pass_word TEXT NOT NULL,
-            ---- maybe foreign key to change tables
-            )"""
+            """CREATE table users(
+            user_id serial not null primary key,
+            email text not null,
+            first_name text not null,
+            last_name text not null,
+            username text not null,
+            pass_word text not null
+             )"""
         )
         conn.commit()
 
-    # RESERVATION...
         cursor.execute(
-            """CREATE TABLE users (
-            confirmation_number SERIAL NOT NULL PRIMARY KEY,
-            username TEXT NOT NULL,
-            arrival_date TEXT NOT NULL,    -- change to dates
-            departure_date TEXT NOT NULL, --change to dates
-            pass_word TEXT NOT NULL,
+            """CREATE table reservation(
+                confirmation_number serial not null primary key,
+                username text not null,
+                arrival_date text not null,
+                departure_date text not null,
+                pass_word text not null
             )"""
         )
         conn.commit()
@@ -40,4 +36,4 @@ try:
         cursor.close()
     createTables()
 except (Exception, psycopg2.Error) as error:
-    print("Error while fetching data PostgreSQL", error)
+    print("error while fetching data postgreSQL", error)
