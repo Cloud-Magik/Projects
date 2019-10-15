@@ -4,7 +4,7 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 try:
     conn = psycopg2.connect(
-        database="Hotel",
+        database="postgres",
         user="postgres",
         password="0000",
         host="127.0.0.1",
@@ -14,7 +14,7 @@ try:
     def createDB():
         cursor = conn.cursor()
         cursor.execute(
-            sql.SQL("CREATE DATABASE {}").format(sql.Identifier('Hotel'))
+            sql.SQL("CREATE DATABASE {}").format(sql.Identifier('project'))
         )
 
         cursor.close()
