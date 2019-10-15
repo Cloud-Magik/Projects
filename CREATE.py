@@ -1,7 +1,7 @@
 import psycopg2
 try:
     conn = psycopg2.connect(
-        database="postgres",
+        database="project",
         user="postgres",
         password="0000",
         host="127.0.0.1",
