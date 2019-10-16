@@ -14,8 +14,8 @@ try:
     # def insertUser():
     #     cursor = conn.cursor()
     #     cursor.execute(
-    #         """INSERT INTO users (user_id, email, first_name, last_name, username, pass_word)
-    #         VALUES ('1','agoodfella@Live.com', 'Daniel', 'Morales', '', '')"""
+    #         """INSERT INTO users ( email, first_name, last_name, username, pass_word)
+    #         VALUES (agoodfella@Live.com', 'Daniel', 'Morales', '', '')"""
     #     )
     #     conn.commit()
     #     cursor.close()
@@ -26,8 +26,8 @@ try:
     def insertReservation():
         cursor = conn.cursor()
         cursor.execute(
-            """INSERT INTO reservation (confirmation_number, user_id, arrival_date, departure_date, room_package, price)
-            VALUES ('00001', '1', '', '', 'Hollywood Suite', '$159.99')"""
+            """INSERT INTO reservation (arrival_date, departure_date, room_package, price)
+            VALUES ('','', 'Hollywood Suite', '$159.99')"""
         )
         conn.commit()
         cursor.close()
