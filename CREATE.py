@@ -24,16 +24,17 @@ try:
 
         cursor.execute(
             """CREATE table reservation(
-                user_id serial not null foreign key,
                 confirmation_number serial primary key,
-                username text not null,
+                user_id integer,
                 arrival_date text not null,
                 departure_date text not null,
-                pass_word text not null
+                constraint foreign key (user_id) references users (user_id)
             )"""
         )
         conn.commit()
 
+        #select * from users as u 
+        #inner join reservation as r on r.user_id=ur.user_id
         cursor.close()
     createTables()
 except (Exception, psycopg2.Error) as error:
