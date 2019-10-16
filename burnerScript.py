@@ -3,7 +3,7 @@ import datetime
 import random
 import calendar
 import getpass
-import * from burner
+from burner import *
 # ---------------------------------------------------------------
 # ******************Requirements for project********************
 # fill brackets with [X] when requirements are fulfilled
