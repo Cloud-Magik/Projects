@@ -75,7 +75,7 @@ try:
 
 
 # main()
-def insertUserInfo(email, first_name, last_name, username, pass_word):
+def insertNewUserInfo(email, first_name, last_name, username, pass_word):
     cursor = conn.cursor()
     cursor.execute(
         f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
@@ -89,4 +89,4 @@ def insertUserInfo(email, first_name, last_name, username, pass_word):
     username = input("Enter username for account:")
     pass_word = input("Enter password for account:")
 
-insertUserInfo(email, first_name, last_name, username, pass_word)
+insertNewUserInfo(email, first_name, last_name, username, pass_word)
