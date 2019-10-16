@@ -1,6 +1,4 @@
-import csv
-password = []
-guestname =[]
+from burner import *
 
 with open('users.csv', 'r') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
@@ -30,3 +28,5 @@ with open('users.csv', 'r') as csvfile:
 
 # def trip_cost (city, days):
 #   return rental_car_cost(days) + hotel_cost(days - 1) + plane_ride_cost(city)
+test()
+Paradisefalls()
