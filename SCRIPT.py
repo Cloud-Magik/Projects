@@ -45,8 +45,8 @@ def main():
             register_user()
 
         elif answer[:1].upper() == 'L':
-            if log_in():
-                print("Succesful login!")
+            log_in()
+            print("Succesful login!")
             break
         else:
             print("Invalid entry")
