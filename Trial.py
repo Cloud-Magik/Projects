@@ -1,8 +1,4 @@
-import csv
-password = []
-guestname =[]
+from burner import *
 
-with open('users.csv', 'r') as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=',')
-    for row in readCSV:
-        print(row)
+test()
+Paradisefalls()
