@@ -3,7 +3,7 @@ import datetime
 import random
 import calendar
 import getpass
-
+from burner import *
 # ---------------------------------------------------------------
 # ******************Requirements for project********************
 # fill brackets with [X] when requirements are fulfilled
@@ -24,14 +24,6 @@ import getpass
 # ---------------------------------------------------------------
 
 # INTRO; Title page, Create user or login
-
-
-def Paradisefalls():
-    Title = open("Title.txt")
-    print(Title.read())
-    Title.close()
-
-
 Paradisefalls()
 
 
