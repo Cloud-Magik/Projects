@@ -1,4 +1,5 @@
 import psycopg2
+import getpass
 try:
     conn = psycopg2.connect(
         database="project",
@@ -11,21 +12,21 @@ try:
 
 # New user registration info inserted into postgreSQL database
 
-    # def insertNewUser(email, first_name, last_name, username, pass_word):
-    #     cursor = conn.cursor()
-    #     cursor.execute(
-    #         f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
-    #     )
-    #     conn.commit()
-    #     print("Record inserted successfully")
-    #     cursor.close()
-    #     email = input("Please enter email to register:")
-    #     first_name = input("Enter first name:")
-    #     last_name = input("Enter last name:")
-    #     username = input("Enter username for account:")
-    #     pass_word = input("Enter password for account:")
+    def insertNewUser(email, first_name, last_name, username, pass_word):
+        cursor = conn.cursor()
+        cursor.execute(
+            f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
+        )
+        conn.commit()
+        print("Record inserted successfully")
+        cursor.close()
+        email = input("Please enter email to register:")
+        first_name = input("Enter first name:")
+        last_name = input("Enter last name:")
+        username = input("Enter username for account:")
+        pass_word = getpass.getpass("Enter password for account:")
 
-    #     insertNewUser(email, first_name, last_name, username, pass_word)
+        insertNewUser(email, first_name, last_name, username, pass_word)
 
 # Login Authentication where checks if you have account in postgreSQL database
 
@@ -33,7 +34,7 @@ try:
         print("""****** PLEASE LOG IN ******
         """)
         username = input("Username: ")
-        pass_word = input("Password: ")
+        pass_word = getpass.getpass("Password: ")
         cursor = conn.cursor()
         cursor.execute(
             f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
@@ -43,6 +44,7 @@ try:
         else:
             print("Wrong credentials")
         cursor.close()
+        
 # Reservation info inserted into postgreSQL database
 
     def insertReservation(arrival_date, departure_date, room_package):
