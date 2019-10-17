@@ -75,18 +75,22 @@ try:
 
 
 # main()
-def insertUserInfo(email, first_name, last_name, username, pass_word):
-    cursor = conn.cursor()
-    cursor.execute(
-        f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
-    )
-    conn.commit()
-    print("Record inserted successfully")
-    cursor.close()
-    email = input("Please enter email to register:")
-    first_name = input("Enter first name:")
-    last_name = input("Enter last name:")
-    username = input("Enter username for account:")
-    pass_word = input("Enter password for account:")
 
-insertUserInfo(email, first_name, last_name, username, pass_word)
+    # def insertUserInfo(email, first_name, last_name, username, pass_word):
+    #     cursor = conn.cursor()
+    #     cursor.execute(
+    #         f"INSERT INTO users (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
+    #     )
+    #     conn.commit()
+    #     print("Record inserted successfully")
+    #     cursor.close()
+    # email = input("Please enter email to register:")
+    # first_name = input("Enter first name:")
+    # last_name = input("Enter last name:")
+    # username = input("Enter username for account:")
+    # pass_word = getpass.getpass("Enter password for account:")
+
+    # insertUserInfo(email, first_name, last_name, username, pass_word)
+    
+except(Exception, psycopg2.Error) as error:
+        print("Error while fetching data from PostgreSQL", error)
