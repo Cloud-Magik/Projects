@@ -9,28 +9,40 @@ try:
     )
 # **********INSERT FUNCTIONS... Functions for how we will make contact with database**********
 
-# login info inserted into postgreSQL database
+# New user registration info inserted into postgreSQL database
 
-    # def insertUser():
-    #     cursor = conn.cursor()
-    #     cursor.execute(
-    #         """INSERT INTO users ( email, first_name, last_name, username, pass_word)
-    #         VALUES (agoodfella@Live.com', 'Daniel', 'Morales', '', '')"""
-    #     )
-    #     conn.commit()
-    #     cursor.close()
-    # insertUser()
-
-    # Reservation info inserted into postgreSQL database
-
-    def insertReservation():
+    def insertNewUser(email, first_name, last_name, username, pass_word):
         cursor = conn.cursor()
         cursor.execute(
-            """INSERT INTO reservation (arrival_date, departure_date, room_package, price)
-            VALUES ('','', 'Hollywood Suite', '$159.99')"""
+            f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
         )
         conn.commit()
+        print("Record inserted successfully")
         cursor.close()
-    insertReservation()
+        email = input("Please enter email to register:")
+        first_name = input("Enter first name:")
+        last_name = input("Enter last name:")
+        username = input("Enter username for account:")
+        pass_word = input("Enter password for account:")
+
+        insertNewUser(email, first_name, last_name, username, pass_word)
+
+# Reservation info inserted into postgreSQL database
+
+    def insertReservation(arrival_date, departure_date, room_package):
+        cursor = conn.cursor()
+        cursor.execute(
+            f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}','{departure_date}', '{room_package}')"
+        )
+        conn.commit()
+        print("Record inserted successfully")
+        cursor.close()
+        email = input("Please enter email to register:")
+        first_name = input("Enter first name:")
+        last_name = input("Enter last name:")
+        username = input("Enter username for account:")
+        pass_word = input("Enter password for account:")
+
+        insertNewUser(email, first_name, last_name, username, pass_word)   
 except (Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)
