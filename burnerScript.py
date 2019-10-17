@@ -1,10 +1,11 @@
 import csv
+import getpass
 import datetime
 import random
 import calendar
-import getpass
-from burner import *
 import psycopg2
+import burner as b
+
 try:
     conn = psycopg2.connect(
         database="project",
@@ -13,21 +14,35 @@ try:
         host="127.0.0.1",
         port="5432"
     )
-    Paradisefalls()
+    b.Paradisefalls()
+
     def main():
+
         while True:
 
             answer = input(
-            "\n\n\nWould you like to login to an existing account or register? (Login/Register): ")
+                "\n\n\nWould you like to login to an existing account or register? (Login/Register): ").upper()
             if answer[:1].upper() == 'R':
-                insertNewUser()
-
+                print("""\nPlease enter registration info for Paradise Falls
+    """)
+                email = input("Please enter email to register:").lower()
+                first_name = input("Enter first name:").lower()
+                last_name = input("Enter last name:").lower()
+                username = input("Enter username for account:").lower()
+                pass_word = getpass.getpass(
+                    "Enter password for account:").lower()
+                b.insertNewUser(email, first_name, last_name,
+                                username, pass_word)
             elif answer[:1].upper() == 'L':
-                Login()
+                print("""\nPlease enter Login info
+                """)
+                username = input("Username: ").lower()
+                pass_word = getpass.getpass("Password: ").lower()
+                b.Login(username, pass_word)
                 print("Succesful login!")
                 break
             else:
-                    print("Invalid entry")
+                print("Invalid entry")
     main()
 except(Exception, psycopg2.Error) as error:
-        print("Error while fetching data from PostgreSQL", error)
+    print("Error while fetching data from PostgreSQL", error)

@@ -32,7 +32,6 @@ def Paradisefalls():
     Title.close()
 
 
-Paradisefalls()
 
 
 def main():
