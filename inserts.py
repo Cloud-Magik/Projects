@@ -32,8 +32,6 @@ try:
     def Login(username, pass_word):
         print("""****** PLEASE LOG IN ******
         """)
-        username = input("Username: ")
-        pass_word = input("Password: ")
         cursor = conn.cursor()
         cursor.execute(
             f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
@@ -43,6 +41,9 @@ try:
         else:
             print("Wrong credentials")
         cursor.close()
+    username = input("Username: ")
+    pass_word = input("Password: ")
+    Login(username, pass_word)
 # Reservation info inserted into postgreSQL database
 
     def insertReservation(arrival_date, departure_date, room_package):
