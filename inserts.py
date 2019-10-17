@@ -1,4 +1,5 @@
 import psycopg2
+import getpass
 try:
     conn = psycopg2.connect(
         database="project",
@@ -14,11 +15,16 @@ try:
     def insertNewUser(email, first_name, last_name, username, pass_word):
         cursor = conn.cursor()
         cursor.execute(
+<<<<<<< HEAD
             f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
+=======
+            f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
+>>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
         )
         conn.commit()
         print("Record inserted successfully")
         cursor.close()
+<<<<<<< HEAD
     email = input("Please enter email to register:")
     first_name = input("Enter first name:")
     last_name = input("Enter last name:")
@@ -26,12 +32,26 @@ try:
     pass_word = input("Enter password for account:")
 
     insertNewUser(email, first_name, last_name, username, pass_word)
+=======
+        email = input("Please enter email to register:")
+        first_name = input("Enter first name:")
+        last_name = input("Enter last name:")
+        username = input("Enter username for account:")
+        pass_word = getpass.getpass("Enter password for account:")
+
+        insertNewUser(email, first_name, last_name, username, pass_word)
+>>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
 
 # Login Authentication where checks if you have account in postgreSQL database
 
     def Login(username, pass_word):
         print("""****** PLEASE LOG IN ******
         """)
+<<<<<<< HEAD
+=======
+        username = input("Username: ")
+        pass_word = getpass.getpass("Password: ")
+>>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
         cursor = conn.cursor()
         cursor.execute(
             f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
@@ -41,9 +61,13 @@ try:
         else:
             print("Wrong credentials")
         cursor.close()
+<<<<<<< HEAD
     username = input("Username: ")
     pass_word = input("Password: ")
     Login(username, pass_word)
+=======
+        
+>>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
 # Reservation info inserted into postgreSQL database
 
     # def insertReservation(arrival_date, departure_date, room_package):
