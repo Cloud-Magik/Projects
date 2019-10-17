@@ -15,43 +15,26 @@ try:
     def insertNewUser(email, first_name, last_name, username, pass_word):
         cursor = conn.cursor()
         cursor.execute(
-<<<<<<< HEAD
-            f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
-=======
-            f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
->>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
+            f"INSERT INTO users (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
         )
         conn.commit()
         print("Record inserted successfully")
         cursor.close()
-<<<<<<< HEAD
-    email = input("Please enter email to register:")
-    first_name = input("Enter first name:")
-    last_name = input("Enter last name:")
-    username = input("Enter username for account:")
-    pass_word = input("Enter password for account:")
+    email = input("Please enter email to register:").lower()
+    first_name = input("Enter first name:").lower()
+    last_name = input("Enter last name:").lower()
+    username = input("Enter username for account:").lower()
+    pass_word = getpass.getpass("Enter password for account:").lower()
 
     insertNewUser(email, first_name, last_name, username, pass_word)
-=======
-        email = input("Please enter email to register:")
-        first_name = input("Enter first name:")
-        last_name = input("Enter last name:")
-        username = input("Enter username for account:")
-        pass_word = getpass.getpass("Enter password for account:")
-
-        insertNewUser(email, first_name, last_name, username, pass_word)
->>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
 
 # Login Authentication where checks if you have account in postgreSQL database
 
     def Login(username, pass_word):
         print("""****** PLEASE LOG IN ******
         """)
-<<<<<<< HEAD
-=======
-        username = input("Username: ")
+        username = input("Username: ").lower()
         pass_word = getpass.getpass("Password: ")
->>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
         cursor = conn.cursor()
         cursor.execute(
             f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
@@ -61,13 +44,9 @@ try:
         else:
             print("Wrong credentials")
         cursor.close()
-<<<<<<< HEAD
-    username = input("Username: ")
-    pass_word = input("Password: ")
+    username = input("Username: ").lower()
+    pass_word = getpass.getpass("Password: ").lower()
     Login(username, pass_word)
-=======
-        
->>>>>>> 89f8ec5cfe34f11ff9189601add039e8066d7cd0
 # Reservation info inserted into postgreSQL database
 
     # def insertReservation(arrival_date, departure_date, room_package):
