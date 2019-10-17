@@ -37,11 +37,11 @@ try:
         conn.commit()
         print("Record inserted successfully")
         cursor.close()
-        email = input("Please enter email to register:")
-        first_name = input("Enter first name:")
-        last_name = input("Enter last name:")
-        username = input("Enter username for account:")
-        pass_word = input("Enter password for account:")
+        # email = input("Please enter email to register:")--reservartion is going to need other half of function to avoid breaking
+        # first_name = input("Enter first name:")
+        # last_name = input("Enter last name:")
+        # username = input("Enter username for account:")
+        # pass_word = input("Enter password for account:")
 
         insertNewUser(email, first_name, last_name, username, pass_word)   
 except (Exception, psycopg2.Error) as error:
