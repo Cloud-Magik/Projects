@@ -12,38 +12,36 @@ try:
 
 # New user registration info inserted into postgreSQL database
 
-    def insertNewUser(email, first_name, last_name, username, pass_word):
-        cursor = conn.cursor()
-        cursor.execute(
-            f"INSERT INTO users (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
-        )
-        conn.commit()
-        print("Record inserted successfully")
-        cursor.close()
-    email = input("Please enter email to register:").lower()
-    first_name = input("Enter first name:").lower()
-    last_name = input("Enter last name:").lower()
-    username = input("Enter username for account:").lower()
-    pass_word = getpass.getpass("Enter password for account:").lower()
+    # def insertNewUser(email, first_name, last_name, username, pass_word):
+    #     cursor = conn.cursor()
+    #     cursor.execute(
+    #         f"INSERT INTO users (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
+    #     )
+    #     conn.commit()
+    #     print("Record inserted successfully")
+    #     cursor.close()
+    # email = input("Please enter email to register:").lower()
+    # first_name = input("Enter first name:").lower()
+    # last_name = input("Enter last name:").lower()
+    # username = input("Enter username for account:").lower()
+    # pass_word = getpass.getpass("Enter password for account:").lower()
 
-    insertNewUser(email, first_name, last_name, username, pass_word)
+    # insertNewUser(email, first_name, last_name, username, pass_word)
 
-# Login Authentication where checks if you have account in postgreSQL database
+# # Login Authentication where checks if you have account in postgreSQL database
 
     def Login(username, pass_word):
-        print("""****** PLEASE LOG IN ******
-        """)
-        username = input("Username: ").lower()
-        pass_word = getpass.getpass("Password: ")
-        cursor = conn.cursor()
-        cursor.execute(
-            f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
-        rows = cursor.fetchall()
-        if(rows):
-            print("You have succesfully logged in!")
-        else:
-            print("Wrong credentials")
-        cursor.close()
+            cursor = conn.cursor()
+            cursor.execute(
+                f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
+            rows = cursor.fetchall()
+            if(rows):
+                print("You have succesfully logged in!")
+            else:
+                print("Wrong credentials")
+            cursor.close()
+    print("""****** PLEASE LOG IN ******
+            """)
     username = input("Username: ").lower()
     pass_word = getpass.getpass("Password: ").lower()
     Login(username, pass_word)
