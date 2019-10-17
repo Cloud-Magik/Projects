@@ -8,6 +8,7 @@ try:
         host="127.0.0.1",
         port="5432"
     )
+
     def Paradisefalls():
         Title = open("Title.txt")
         print(Title.read())
@@ -24,18 +25,21 @@ try:
         conn.commit()
         print("Record inserted successfully")
         cursor.close()
-    print("""\nPlease enter registration info for Paradise Falls
-        """)
 
     def Login(username, pass_word):
+        isWrongConfirmed = False
         cursor = conn.cursor()
         cursor.execute(
             f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
         rows = cursor.fetchall()
         if(rows):
             print("You have succesfully logged in!")
+            isWrongConfirmed = True
         else:
             print("Wrong credentials")
+            isWrongConfirmed = False
+        return isWrongConfirmed
+
         cursor.close()
 except(Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)

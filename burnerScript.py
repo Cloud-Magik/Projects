@@ -17,7 +17,7 @@ try:
     b.Paradisefalls()
 
     def main():
-
+        x = 1
         while True:
 
             answer = input(
@@ -33,15 +33,18 @@ try:
                     "Enter password for account:").lower()
                 b.insertNewUser(email, first_name, last_name,
                                 username, pass_word)
+                x = 1
             elif answer[:1].upper() == 'L':
                 print("""\nPlease enter Login info
                 """)
                 username = input("Username: ").lower()
                 pass_word = getpass.getpass("Password: ").lower()
-                b.Login(username, pass_word)
-                break
+                confirmed = b.Login(username, pass_word)
+                if(confirmed):
+                    break
             else:
                 print("Invalid entry")
+                x = 1
     main()
 except(Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)
