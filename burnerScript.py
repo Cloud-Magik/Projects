@@ -45,6 +45,7 @@ try:
             else:
                 print("Invalid entry")
                 x = 1
+        
     main()
 except(Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)
