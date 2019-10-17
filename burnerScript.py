@@ -39,7 +39,6 @@ try:
                 username = input("Username: ").lower()
                 pass_word = getpass.getpass("Password: ").lower()
                 b.Login(username, pass_word)
-                print("Succesful login!")
                 break
             else:
                 print("Invalid entry")
