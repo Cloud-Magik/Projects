@@ -11,21 +11,21 @@ try:
 
 # New user registration info inserted into postgreSQL database
 
-    # def insertNewUser(email, first_name, last_name, username, pass_word):
-    #     cursor = conn.cursor()
-    #     cursor.execute(
-    #         f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word})"
-    #     )
-    #     conn.commit()
-    #     print("Record inserted successfully")
-    #     cursor.close()
-    #     email = input("Please enter email to register:")
-    #     first_name = input("Enter first name:")
-    #     last_name = input("Enter last name:")
-    #     username = input("Enter username for account:")
-    #     pass_word = input("Enter password for account:")
+    def insertNewUser(email, first_name, last_name, username, pass_word):
+        cursor = conn.cursor()
+        cursor.execute(
+            f"INSERT INTO User (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
+        )
+        conn.commit()
+        print("Record inserted successfully")
+        cursor.close()
+    email = input("Please enter email to register:")
+    first_name = input("Enter first name:")
+    last_name = input("Enter last name:")
+    username = input("Enter username for account:")
+    pass_word = input("Enter password for account:")
 
-    #     insertNewUser(email, first_name, last_name, username, pass_word)
+    insertNewUser(email, first_name, last_name, username, pass_word)
 
 # Login Authentication where checks if you have account in postgreSQL database
 
@@ -46,20 +46,20 @@ try:
     Login(username, pass_word)
 # Reservation info inserted into postgreSQL database
 
-    def insertReservation(arrival_date, departure_date, room_package):
-        cursor = conn.cursor()
-        cursor.execute(
-            f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}','{departure_date}', '{room_package}')"
-        )
-        conn.commit()
-        print("Record inserted successfully")
-        cursor.close()
-        # email = input("Please enter email to register:")--reservartion is going to need other half of function to avoid breaking
-        # first_name = input("Enter first name:")
-        # last_name = input("Enter last name:")
-        # username = input("Enter username for account:")
-        # pass_word = input("Enter password for account:")
+    # def insertReservation(arrival_date, departure_date, room_package):
+    #     cursor = conn.cursor()
+    #     cursor.execute(
+    #         f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}','{departure_date}', '{room_package}')"
+    #     )
+    #     conn.commit()
+    #     print("Record inserted successfully")
+    #     cursor.close()
+    #     # email = input("Please enter email to register:")--reservartion is going to need other half of function to avoid breaking
+    #     # first_name = input("Enter first name:")
+    #     # last_name = input("Enter last name:")
+    #     # username = input("Enter username for account:")
+    #     # pass_word = input("Enter password for account:")
 
-        insertNewUser(email, first_name, last_name, username, pass_word)   
+    #     insertNewUser(email, first_name, last_name, username, pass_word)   
 except (Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)
