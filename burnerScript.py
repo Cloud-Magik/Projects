@@ -98,7 +98,7 @@ try:
                 first_name = input("Enter first name:").lower()
                 last_name = input("Enter last name:").lower()
                 credit_card_number = input("Enter credit card number:").lower()
-                experation_date = input ("Enter experation date:").lower()
+                expiration_date = input ("Enter expiration date:").lower()
                 CCV = input("Enter CCV number:").lower()
             else:
                 print("Invalid entry")
