@@ -30,6 +30,27 @@ try:
         print("Record inserted successfully")
         cursor.close()
 
+    def retrieveUsers():
+        cursor = conn.cursor()
+        cursor.execute(
+            f"SELECT user_id, email, first_name, last_name, username, pass_word FROM users WHERE username = {username} AND pass_word={pass_word}"
+        )
+        rows = cursor.fetchone()
+        if(rows):
+            for row in rows:
+                print('''
+                User ID: {0}
+                email: {1}
+                First Name: {2}
+                Last Name: {3}
+                username: {4
+                pass_word: {5}}
+                '''.format(row[0], row[1], row[2], row[3], row[4], row[5]))
+        else:
+            print("Your database is empty")
+        cursor.close()
+    retrieveUsers()
+
     def Login(username, pass_word):
         isWrongConfirmed = False
         cursor = conn.cursor()

@@ -21,7 +21,7 @@ try:
         while True:
 
             answer = input(
-                "\n\n\nWould you like to login to an existing account or register? (Login/Register): ").upper()
+                "\n\n\nWould you like to login to an existing account, register, or view account info? (Login/Register/View): ").upper()
             if answer[:1].upper() == 'R':
                 print("""\nPlease enter registration info for Paradise Falls
     """)
@@ -42,6 +42,11 @@ try:
                 confirmed = b.Login(username, pass_word)
                 if(confirmed):
                     break
+            elif answer[:1].upper() == 'V':
+                print("""\n Please enter Login info""")
+                username = input("Please enter Username:")
+                pass_word = input("Please enter password:")
+                b.retrieveUsers()
             else:
                 print("Invalid entry")
                 x = 1
