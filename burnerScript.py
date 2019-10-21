@@ -49,13 +49,17 @@ try:
         while True:
 
             answer = input(
-                "\n\n\nWould you like to book a reservation, update a reservation, view a reservation, or cancel a reservation? (book/update/view): ").upper()
+                "\n\n\nWould you like to book a reservation, update a reservation, view a reservation, or cancel a reservation? (book/update/view/cancel): ").upper()
             if answer[:1].upper() == 'B':
                 print("""\n Welcome to Paradise Falls, please book now!:
                 """)
-                arrival_date = input("choose arrival date:").lower()
-                departure_date = input("choose departure date:").lower()
-                room_package = input("choose room:").lower()
+                arrival_date = input(
+                    "choose arrival date *note numbersonly:")[:8]
+                departure_date = input(
+                    "choose departure date *note numbers only:")[:8]
+                b.RoomTxt()
+                room_package = input("choose room package:")
+                b.Booking(arrival_date, departure_date, room_package)
                 x = 1
             elif answer[:1].upper() == 'U':
                 print("""\n  Update Reservation now!:
@@ -63,32 +67,32 @@ try:
                 answer = input(
                     "\n\n\n What would you like to update? arrival date, departure date, or room package  (book/update/view): ").upper()
                 if answer[:1].upper() == 'A':
-                    arrival_date = input("choose arrival date:").lower()
+                    arrival_date = input("choose arrival date:")
                 elif answer[:1].upper() == 'D':
-                    departure_date = input("choose departure date:").lower()
+                    departure_date = input("choose departure date:")
                 elif answer[:1].upper() == 'R':
-                    room_package = input("choose room:").lower()
+                    room_package = input("choose room:")
                 else:
                     print("Invalid entry")
                 x = 1
             elif answer[:1].upper() == 'V':
                 print("""\nPlease enter Confirmation Number
                 """)
-                confirmation_number = input("Enter Confirmation Number: ").lower()
+                confirmation_number = input("Enter Confirmation Number: ")
                 confirmed = b.Confirmation(confirmation_number)
                 if(confirmed):
                     break
             elif answer[:1].upper() == 'C':
                 print("""\nPlease enter Confirmation Number
                 """)
-                confirmation_number = input("Enter Confirmation Number: ").lower()
+                confirmation_number = input("Enter Confirmation Number: ")
                 confirmed = b.Confirmation(confirmation_number)
                 if(confirmed):
                     break
             else:
                 print("Invalid entry")
                 x = 1
-            
+
         x = 1
         while True:
 
@@ -97,15 +101,13 @@ try:
             if answer[:1].upper() == 'P':
                 first_name = input("Enter first name:").lower()
                 last_name = input("Enter last name:").lower()
-                credit_card_number = input("Enter credit card number:").lower()
-                expiration_date = input ("Enter expiration date:").lower()
-                CCV = input("Enter CCV number:").lower()
+                credit_card_number = input("Enter credit card number:")
+                expiration_date = input("Enter expiration date:")
+                CCV = input("Enter CCV number:")
             else:
                 print("Invalid entry")
-                x = 1   
-    
-    
-    
+                x = 1
+
     main()
 except(Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)

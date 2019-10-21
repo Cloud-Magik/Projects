@@ -14,6 +14,10 @@ try:
         print(Title.read())
         Title.close()
 
+    def RoomTxt():
+        Rooms = open("RoomTxt.txt")
+        print(Rooms.read())
+
     def test():
         print('test')
 
@@ -41,5 +45,15 @@ try:
         return isWrongConfirmed
 
         cursor.close()
+
+    def Booking(arrival_date, departure_date, room_package):
+        cursor = conn.cursor()
+        cursor.execute(
+            f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
+        )
+        conn.commit()
+        print("Record inserted successfully")
+        cursor.close()
+
 except(Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)
