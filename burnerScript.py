@@ -6,6 +6,7 @@ import calendar
 import psycopg2
 import burner as b
 user_id=0
+package_id=0
 try:
     conn = psycopg2.connect(
         database="project",
@@ -39,7 +40,7 @@ try:
                 """)
                 username = input("Username: ").lower()
                 pass_word = getpass.getpass("Password: ").lower()
-                confirmed, user_id = b.Login(username, pass_word)
+                confirmed= b.Login(username, pass_word)
                 if(confirmed):
                     break
             elif answer[:1].upper() == 'V':
@@ -63,8 +64,8 @@ try:
                 departure_date = input(
                     "choose departure date *note numbers only:")[:8]
                 b.RoomTxt()
-                room_package = input("choose room package:")
-                b.Booking(arrival_date, departure_date, room_package, user_id)
+                package_id = input("choose room package:")
+                b.Booking(arrival_date, departure_date, user_id, package_id)
                 x = 1
             elif answer[:1].upper() == 'U':
                 print("""\n  Update Reservation now!:
@@ -91,9 +92,7 @@ try:
                 print("""\nPlease enter Confirmation Number
                 """)
                 confirmation_number = input("Enter Confirmation Number: ")
-                confirmed = b.Confirmation(confirmation_number)
-                if(confirmed):
-                    break
+                b.cancel(confirmation_number)
             else:
                 print("Invalid entry")
                 x = 1
