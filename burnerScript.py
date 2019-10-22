@@ -57,7 +57,7 @@ try:
                 x = 1
         x = 1
         while True:
-                answer = input(
+            answer = input(
                 "\n\n\nWould you like to book a reservation, update a reservation, view a reservation, or cancel a reservation? (book/update/view/cancel): ").upper()
             if answer[:1].upper() == 'B':
                 print("""\n Welcome to Paradise Falls, please book now!:
