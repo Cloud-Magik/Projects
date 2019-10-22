@@ -72,7 +72,7 @@ try:
                 user_id = row[0]
                 print("You have succesfully logged in!")
                 print(f"""Your userID is :{user_id}""")
-
+            isWrongConfirmed = True
         else:
             print("Wrong credentials")
             isWrongConfirmed = False
