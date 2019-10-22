@@ -60,6 +60,7 @@ try:
         if(rows):
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             isWrongConfirmed = True
             for row in rows:
                 user_id = row[0]
@@ -68,6 +69,11 @@ try:
 =======
             print("You have succesfully logged in!")
 >>>>>>> parent of 0e45f63... userID fixed
+=======
+            for row in rows:
+                user_id = row[0]
+            print("You have succesfully logged in!")
+>>>>>>> parent of 0cfc816... pray
 =======
             for row in rows:
                 user_id = row[0]
@@ -85,6 +91,7 @@ try:
         cursor = conn.cursor()
         cursor.execute(
 <<<<<<< HEAD
+<<<<<<< HEAD
             f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
 <<<<<<< HEAD
             )
@@ -94,6 +101,10 @@ try:
 =======
         )
 >>>>>>> parent of 0e45f63... userID fixed
+=======
+            f"INSERT INTO reservation (user_id, arrival_date, departure_date, room_package) VALUES ({id},'{arrival_date}', '{departure_date}', '{room_package}')"
+        )
+>>>>>>> parent of 0cfc816... pray
 =======
             f"INSERT INTO reservation (user_id, arrival_date, departure_date, room_package) VALUES ({id},'{arrival_date}', '{departure_date}', '{room_package}')"
         )
