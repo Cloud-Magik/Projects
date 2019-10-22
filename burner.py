@@ -67,6 +67,7 @@ try:
         rows = cursor.fetchall()
         if(rows):
 <<<<<<< HEAD
+<<<<<<< HEAD
             isWrongConfirmed = True
             for row in rows:
                 user_id = row[0]
@@ -74,6 +75,8 @@ try:
                 print(f"""Your userID is :{user_id}""")
                 
 =======
+=======
+>>>>>>> parent of 0e45f63... userID fixed
             print("You have succesfully logged in!")
             isWrongConfirmed = True
 >>>>>>> parent of 0e45f63... userID fixed
@@ -88,7 +91,11 @@ try:
         cursor = conn.cursor()
         cursor.execute(
 <<<<<<< HEAD
+<<<<<<< HEAD
             f"INSERT INTO reservation (user_id, package_id, arrival_date, departure_date) VALUES ({id},'{arrival_date}', '{departure_date}')"
+=======
+            f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
+>>>>>>> parent of 0e45f63... userID fixed
 =======
             f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
 >>>>>>> parent of 0e45f63... userID fixed

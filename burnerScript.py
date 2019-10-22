@@ -6,8 +6,12 @@ import calendar
 import psycopg2
 import burner as b
 <<<<<<< HEAD
+<<<<<<< HEAD
 user_id=0
 package_id=0
+=======
+
+>>>>>>> parent of 0e45f63... userID fixed
 =======
 
 >>>>>>> parent of 0e45f63... userID fixed
@@ -45,7 +49,11 @@ try:
                 username = input("Username: ").lower()
                 pass_word = getpass.getpass("Password: ").lower()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 confirmed= b.Login(username, pass_word)
+=======
+                confirmed = b.Login(username, pass_word)
+>>>>>>> parent of 0e45f63... userID fixed
 =======
                 confirmed = b.Login(username, pass_word)
 >>>>>>> parent of 0e45f63... userID fixed
@@ -78,6 +86,9 @@ try:
 =======
                 room_package = input("choose room package:")
                 b.Booking(arrival_date, departure_date, room_package)
+<<<<<<< HEAD
+>>>>>>> parent of 0e45f63... userID fixed
+=======
 >>>>>>> parent of 0e45f63... userID fixed
                 x = 1
             elif answer[:1].upper() == 'U':
