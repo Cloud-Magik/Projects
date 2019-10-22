@@ -5,8 +5,12 @@ import random
 import calendar
 import psycopg2
 import burner as b
+<<<<<<< HEAD
 user_id=0
 package_id=0
+=======
+
+>>>>>>> parent of 0e45f63... userID fixed
 try:
     conn = psycopg2.connect(
         database="project",

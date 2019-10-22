@@ -1,6 +1,5 @@
 import getpass
 import psycopg2
-
 try:
     conn = psycopg2.connect(
         database="project",
@@ -67,11 +66,15 @@ try:
             f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
         rows = cursor.fetchall()
         if(rows):
+<<<<<<< HEAD
             isWrongConfirmed = True
             for row in rows:
                 user_id = row[0]
                 print("You have succesfully logged in!")
                 print(f"""Your userID is :{user_id}""")
+=======
+            print("You have succesfully logged in!")
+>>>>>>> parent of 0e45f63... userID fixed
             isWrongConfirmed = True
         else:
             print("Wrong credentials")
@@ -84,10 +87,14 @@ try:
         cursor = conn.cursor()
         cursor.execute(
             f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
+<<<<<<< HEAD
             )
         cursor.execute(
             f"SELECT user_id FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
         rows = cursor.fetchall()
+=======
+        )
+>>>>>>> parent of 0e45f63... userID fixed
         conn.commit()
         print("Record inserted successfully")
         cursor.close()
