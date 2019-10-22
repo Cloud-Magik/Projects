@@ -5,7 +5,7 @@ import random
 import calendar
 import psycopg2
 import burner as b
-user_id=0
+user_id = 0
 try:
     conn = psycopg2.connect(
         database="project",
@@ -40,7 +40,6 @@ try:
                 username = input("Username: ").lower()
                 pass_word = getpass.getpass("Password: ").lower()
                 confirmed = b.Login(username, pass_word)
-                confirmed, user_id = b.Login(username, pass_word)
                 if(confirmed):
                     break
             elif answer[:1].upper() == 'V':
