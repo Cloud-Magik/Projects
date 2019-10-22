@@ -27,15 +27,7 @@ try:
             f"INSERT INTO users (email, first_name, last_name, username, pass_word) VALUES ('{email}','{first_name}', '{last_name}', '{username}', '{pass_word}')"
         )
         conn.commit()
-        cursor.execute(
-            f"SELECT user_id FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
-        rows = cursor.fetchall()
-        if (rows):
-            
-            for row in rows:
-                user_id = row[0]
-                print("Record inserted successfully")
-                print(f"Your UserID is:{user_id}")
+        print("Record inserted successfully")
         cursor.close()
 
     def retrieveUsers():
@@ -67,6 +59,7 @@ try:
         rows = cursor.fetchall()
         if(rows):
 <<<<<<< HEAD
+<<<<<<< HEAD
             isWrongConfirmed = True
             for row in rows:
                 user_id = row[0]
@@ -75,17 +68,23 @@ try:
 =======
             print("You have succesfully logged in!")
 >>>>>>> parent of 0e45f63... userID fixed
+=======
+            for row in rows:
+                user_id = row[0]
+            print("You have succesfully logged in!")
+>>>>>>> parent of 0cfc816... pray
             isWrongConfirmed = True
         else:
             print("Wrong credentials")
             isWrongConfirmed = False
-        return isWrongConfirmed
+        return isWrongConfirmed, user_id
 
         cursor.close()
 
     def Booking(arrival_date, departure_date, room_package):
         cursor = conn.cursor()
         cursor.execute(
+<<<<<<< HEAD
             f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
 <<<<<<< HEAD
             )
@@ -95,16 +94,13 @@ try:
 =======
         )
 >>>>>>> parent of 0e45f63... userID fixed
+=======
+            f"INSERT INTO reservation (user_id, arrival_date, departure_date, room_package) VALUES ({id},'{arrival_date}', '{departure_date}', '{room_package}')"
+        )
+>>>>>>> parent of 0cfc816... pray
         conn.commit()
         print("Record inserted successfully")
         cursor.close()
 
-    def cancel(confirmation_number):
-        cursor = conn.cursor()
-        cursor.execute(
-            f"DELETE * FROM reservation WHERE confirmation_number='{confirmation_number}'")
-        cursor.commit()
-        print("record deleted successfully")
-        cursor.close()
 except(Exception, psycopg2.Error) as error:
     print("Error while fetching data from PostgreSQL", error)
