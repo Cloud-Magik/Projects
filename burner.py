@@ -1,6 +1,5 @@
 import getpass
 import psycopg2
-
 try:
     conn = psycopg2.connect(
         database="project",
@@ -39,33 +38,45 @@ try:
                 print(f"Your UserID is:{user_id}")
         cursor.close()
 
-    def retrieveUsers(username, pass_word):
+    def retrieveUsers():
         cursor = conn.cursor()
         cursor.execute(
-            f"SELECT * FROM users WHERE username = '{username}' AND pass_word='{pass_word}'"
+            f"SELECT user_id, email, first_name, last_name, username, pass_word FROM users WHERE username = {username} AND pass_word={pass_word}"
         )
-        rows = cursor.fetchall()
+        rows = cursor.fetchone()
         if(rows):
             for row in rows:
-                print(rows)
+                print('''
+                User ID: {0}
+                email: {1}
+                First Name: {2}
+                Last Name: {3}
+                username: {4
+                pass_word: {5}}
+                '''.format(row[0], row[1], row[2], row[3], row[4], row[5]))
         else:
             print("Your database is empty")
         cursor.close()
+    retrieveUsers()
 
     def Login(username, pass_word):
         isWrongConfirmed = False
         cursor = conn.cursor()
         cursor.execute(
-            f"SELECT user_id FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
+            f"SELECT * FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
         rows = cursor.fetchall()
-
         if(rows):
+<<<<<<< HEAD
             isWrongConfirmed = True
             for row in rows:
                 user_id = row[0]
                 print("You have succesfully logged in!")
                 print(f"""Your userID is :{user_id}""")
                 
+=======
+            print("You have succesfully logged in!")
+            isWrongConfirmed = True
+>>>>>>> parent of 0e45f63... userID fixed
         else:
             print("Wrong credentials")
             isWrongConfirmed = False
@@ -73,11 +84,14 @@ try:
 
         cursor.close()
 
-    def Booking(arrival_date, departure_date, room_package, id):
-
+    def Booking(arrival_date, departure_date, room_package):
         cursor = conn.cursor()
         cursor.execute(
+<<<<<<< HEAD
             f"INSERT INTO reservation (user_id, package_id, arrival_date, departure_date) VALUES ({id},'{arrival_date}', '{departure_date}')"
+=======
+            f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
+>>>>>>> parent of 0e45f63... userID fixed
         )
         cursor.execute(
             f"SELECT user_id FROM users WHERE username='{username}' AND pass_word='{pass_word}'")

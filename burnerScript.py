@@ -5,8 +5,12 @@ import random
 import calendar
 import psycopg2
 import burner as b
+<<<<<<< HEAD
 user_id=0
 package_id=0
+=======
+
+>>>>>>> parent of 0e45f63... userID fixed
 try:
     conn = psycopg2.connect(
         database="project",
@@ -40,14 +44,18 @@ try:
                 """)
                 username = input("Username: ").lower()
                 pass_word = getpass.getpass("Password: ").lower()
+<<<<<<< HEAD
                 confirmed= b.Login(username, pass_word)
+=======
+                confirmed = b.Login(username, pass_word)
+>>>>>>> parent of 0e45f63... userID fixed
                 if(confirmed):
                     break
             elif answer[:1].upper() == 'V':
-                print("""\nPlease enter Login info""")
-                username = input("Please enter username:").lower()
-                pass_word = input("Please enter password:").lower()
-                b.retrieveUsers(username, pass_word)
+                print("""\n Please enter Login info""")
+                username = input("Please enter Username:")
+                pass_word = input("Please enter password:")
+                b.retrieveUsers()
             else:
                 print("Invalid entry")
                 x = 1
@@ -64,8 +72,13 @@ try:
                 departure_date = input(
                     "choose departure date *note numbers only:")[:8]
                 b.RoomTxt()
+<<<<<<< HEAD
                 package_id = input("choose room package:")
                 b.Booking(arrival_date, departure_date, user_id, package_id)
+=======
+                room_package = input("choose room package:")
+                b.Booking(arrival_date, departure_date, room_package)
+>>>>>>> parent of 0e45f63... userID fixed
                 x = 1
             elif answer[:1].upper() == 'U':
                 print("""\n  Update Reservation now!:
