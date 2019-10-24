@@ -62,13 +62,14 @@ try:
 
         cursor.close()
 
-    def Booking(arrival_date, departure_date, room_package, id, username, pass_word):
+    def Booking(arrival_date, departure_date, package_id, id):
         cursor = conn.cursor()
         cursor.execute(
-            f"INSERT INTO reservation (arrival_date, departure_date, room_package) VALUES ('{arrival_date}', '{departure_date}', '{room_package}')"
+            f"INSERT INTO reservation (user_id, arrival_date, departure_date, package_id) VALUES ('{id}','{arrival_date}', '{departure_date}', '{package_id}')"
         )
+        cursor.close
         cursor.execute(
-            f"SELECT user_id FROM users WHERE username='{username}' AND pass_word='{pass_word}'")
+            f"SELECT * from reservation natural join roompackages ")
         conn.commit()
         print("Record inserted successfully")
         cursor.close()

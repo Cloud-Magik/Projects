@@ -46,7 +46,7 @@ try:
                 print("""\n Please enter Login info""")
                 username = input("Please enter Username:")
                 pass_word = input("Please enter password:")
-                b.retrieveUsers()
+                b.retrieveUsers(username, pass_word)
             else:
                 print("Invalid entry")
                 x = 1
@@ -57,6 +57,7 @@ try:
             if answer[:1].upper() == 'B':
                 print("""\n Welcome to Paradise Falls, please book now!:
                 """)
+                user_id=input("Please enter your userID :")
                 arrival_date = input(
                     "choose arrival date *note numbersonly:")[:8]
                 departure_date = input(
@@ -69,7 +70,7 @@ try:
                 print("""\n  Update Reservation now!:
                       """)
                 answer = input(
-                    "\n\n\n What would you like to update? arrival date, departure date, or room package  (book/update/view): ").upper()
+                    "\n\n\n What would you like to update? arrival date, departure date, or room package  (arrival/departure/room): ").upper()
                 if answer[:1].upper() == 'A':
                     arrival_date = input("choose arrival date:")
                 elif answer[:1].upper() == 'D':
@@ -83,9 +84,7 @@ try:
                 print("""\nPlease enter Confirmation Number
                 """)
                 confirmation_number = input("Enter Confirmation Number: ")
-                confirmed = b.Confirmation(confirmation_number)
-                if(confirmed):
-                    break
+         
             elif answer[:1].upper() == 'C':
                 print("""\nPlease enter Confirmation Number
                 """)
