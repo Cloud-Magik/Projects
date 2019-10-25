@@ -57,7 +57,7 @@ try:
             if answer[:1].upper() == 'B':
                 print("""\n Welcome to Paradise Falls, please book now!:
                 """)
-                user_id=input("Please enter your userID :")
+                user_id = input("Please enter your userID :")
                 arrival_date = input(
                     "choose arrival date *note numbersonly:")[:8]
                 departure_date = input(
@@ -84,7 +84,7 @@ try:
                 print("""\nPlease enter Confirmation Number
                 """)
                 confirmation_number = input("Enter Confirmation Number: ")
-         
+
             elif answer[:1].upper() == 'C':
                 print("""\nPlease enter Confirmation Number
                 """)
